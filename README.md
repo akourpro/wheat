@@ -38,7 +38,7 @@
 
 3. **إدراج بيانات جديدة:**
     ```php
-    dbInsert('my_table', 'column1, column2', [$value1, $value2]);
+    dbInsert('table', 'column1, column2', [$value1, $value2]);
     ```
     مثال واقعي:
     ```php
@@ -47,7 +47,24 @@
     dbInsert("users", $columns, $values);
     ```
 
-...
+4. **تحديث البيانات:**
+
+    ```php
+    dbUpdate('table', 'column1 = ?, column2 = ?', [$value1, $value2]);
+    ```
+    مثال واقعي:
+    ```php
+    $id = 1;
+    $columns = "name = ?, email = ?, password = ?";
+    $values = [$name, $email, $password, $id];
+    $where = "WHERE id = ?";
+    dbUpdate("users", $columns, $values, $where);
+    ```
+
+    5. . **حذف بيانات:**
+  
+   
+
 
 ## المتطلبات
 
