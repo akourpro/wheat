@@ -27,7 +27,7 @@
     ```php
     dbSelect($table, $selects, $where = null, $vars = null);
     ```
-    نفس المثال بطريقة اخرى:
+    مثال واقعي:
    ```php
     $columns = "column1, column2";
     $where = "WHERE name = ?";
@@ -64,7 +64,7 @@
     5. . **حذف بيانات:**
   
    ```php
-       dbDelete($table, $where = null, $vars = null);
+   dbDelete($table, $where = null, $vars = null);
     ```
     مثال واقعي:
     ```php
@@ -77,6 +77,11 @@
 ## المتطلبات
 
 - يتطلب PHP 7.1 أو أحدث.
+
+## المطورين
+تم تطوير هذه المكتبة بواسطة:
+[محمد عكور](https://github.com/akourpro)
+[بوجليدة عبدالحق](https://github.com/abdelhakpro/)
 
 ## ترخيص
 
