@@ -80,8 +80,8 @@
 
 ## المطورين
 تم تطوير هذه المكتبة بواسطة:
-[محمد عكور](https://github.com/akourpro)
-[بوجليدة عبدالحق](https://github.com/abdelhakpro/)
+- [محمد عكور](https://github.com/akourpro)
+- [بوجليدة عبدالحق](https://github.com/abdelhakpro)
 
 ## ترخيص
 
