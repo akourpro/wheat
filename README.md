@@ -25,7 +25,7 @@
 
 1. **الاستعلام عن البيانات:**
     ```php
-    dbSelect('table', 'column1, column2', 'WHERE name = ?', [wheat]);
+    dbSelect($table, $selects, $where = null, $vars = null);
     ```
     نفس المثال بطريقة اخرى:
    ```php
@@ -38,7 +38,7 @@
 
 3. **إدراج بيانات جديدة:**
     ```php
-    dbInsert('table', 'column1, column2', [$value1, $value2]);
+    dbInsert($table, $columns, $vars);
     ```
     مثال واقعي:
     ```php
@@ -50,7 +50,7 @@
 4. **تحديث البيانات:**
 
     ```php
-    dbUpdate('table', 'column1 = ?, column2 = ?', [$value1, $value2]);
+    dbUpdate($table, $columns, $vars, $where = null);
     ```
     مثال واقعي:
     ```php
@@ -63,7 +63,15 @@
 
     5. . **حذف بيانات:**
   
-   
+   ```php
+       dbDelete($table, $where = null, $vars = null);
+    ```
+    مثال واقعي:
+    ```php
+    $where = "WHERE name = ?";
+    $values = ["Akour"];
+    dbDelete("users", $where, $values);
+    ```
 
 
 ## المتطلبات
