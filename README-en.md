@@ -193,4 +193,3 @@ This library was developed by:
 
 ## License
 [GPL]
-```
