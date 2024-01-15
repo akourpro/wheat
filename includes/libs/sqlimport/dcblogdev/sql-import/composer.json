@@ -1,0 +1,22 @@
+{
+    "name": "dcblogdev/sql-import",
+    "description": "Import .sql file into a database using PDO",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev",
+            "homepage": "http://dcblog.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dcblogdev\\SqlImport\\": "/"
+        }
+    },
+    "minimum-stability": "dev"
+}

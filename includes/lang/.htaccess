@@ -1,0 +1,3 @@
+# auto include
+php_value auto_prepend_file includes/minimal.php
+php_value auto_append_file none
