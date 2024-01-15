@@ -1,11 +1,15 @@
 # القمح
-
+<div dir="rtl">
+  
 القمح هي مكتبة PHP تقوم بتسهيل كتابة الأكواد للمطورين بدرجة كبيرة جدًا، حيث انها تمتاز بوظائف كثيرة ومختصرة وآمنة.
 
 ## الوظائف الرئيسية
 مثال: جلب البيانات من قاعدة البيانات:
+</div>
 
 ### `dbSelect($table, $selects, $where = null, $vars = null)`
+
+<div dir="rtl">
 
 #### المدخلات:
 
@@ -19,116 +23,169 @@
 - تقوم الدالة بتخزين النتائج في مصفوفة باسم `$rows`.
 - يتم تخزين عدد الصفوف التي تم ايجادها في متغير باسم `$countrows`.
 
-...
-
 ## كيفية الاستخدام
 
 1. **الاستعلام عن البيانات:**
-    ```php
-    dbSelect($table, $selects, $where = null, $vars = null);
-    ```
-    مثال واقعي:
-   ```php
-    $columns = "column1, column2";
-    $where = "WHERE name = ?";
-    $value = ["wheat"];
-    dbSelect('table', $columns, $where, $value);
-    ```
-   
+
+    </div>
+
+
+
+ ```php
+ dbSelect($table, $selects, $where = null, $vars = null);
+ ```
+    
+<div dir="rtl">
+
+ مثال واقعي:
+ 
+</div>
+ 
+    
+ ```php
+ $columns = "column1, column2";
+ $where = "WHERE name = ?";
+ $value = ["wheat"];
+ dbSelect('table', $columns, $where, $value);
+ ```
+<div dir="rtl"> 
 
 3. **إدراج بيانات جديدة:**
+</div>
+
     ```php
     dbInsert($table, $columns, $vars);
     ```
-    مثال واقعي:
-    ```php
-    $columns = "name, email, password";
-    $values = [$name, $email, $password];
-    dbInsert("users", $columns, $values);
-    ```
+<div dir="rtl"> 
+
+ مثال واقعي:
+</div>
+
+ ```php
+ $columns = "name, email, password";
+ $values = [$name, $email, $password];
+ dbInsert("users", $columns, $values);
+ ```
+
+<div dir="rtl"> 
 
 4. **تحديث البيانات:**
+</div>
 
     ```php
     dbUpdate($table, $columns, $vars, $where = null);
     ```
-    مثال واقعي:
-    ```php
-    $id = 1;
-    $columns = "name = ?, email = ?, password = ?";
-    $values = [$name, $email, $password, $id];
-    $where = "WHERE id = ?";
-    dbUpdate("users", $columns, $values, $where);
-    ```
+    
+<div dir="rtl"> 
+
+ مثال واقعي:
+    
+</div>
+
+ ```php
+ $id = 1;
+ $columns = "name = ?, email = ?, password = ?";
+ $values = [$name, $email, $password, $id];
+ $where = "WHERE id = ?";
+ dbUpdate("users", $columns, $values, $where);
+ ```
+<div dir="rtl">
 
 5.  **حذف بيانات:**
-  
+</div>
+
     ```php
     dbDelete($table, $where = null, $vars = null);
     ```
-    مثال واقعي:
-    ```php
-    $where = "WHERE name = ?";
-    $values = ["Akour"];
-    dbDelete("users", $where, $values);
-    ```
+<div dir="rtl">
+
+مثال واقعي:
+    
+</div>
+
+ ```php
+ $where = "WHERE name = ?";
+ $values = ["Akour"];
+ dbDelete("users", $where, $values);
+ ```
+<div dir="rtl">
 
 ## رفع الملفات
 في مكتبة قمح تم تطوير نظام مخصص من أجل التعامل مع الملفات على السيرفر
+</div>
 
 ```php
 up($name, $input, $dir, $max_size);
 ```
+<div dir="rtl">
+
 - المتغير `$name` = يتم تغيير اسم الملف الاصلي الى الاسم الموجود في هذا المتغير
 - المتغير `$input` = اسم حقل رفع الملف من نموذج HTML Form (input file)
 - المتغير `$max_size` = الحجم الأقصى بالميجابايت (للملف)
 - المتغير `$dir` = مسار الرفع (مكان حفظ الملف في السيرفر)
 
   ### توليد رقم عشوائي غير مكرر في قاعدة البيانات
+  </div>
+  
   ```php
   genCode($table, $column, $type, $size);
   ```
-   - انشاء كود توكن لعملية ما مثلا تحقق بريد او تحقق كلمة سر
-   - يقوم الكود انشاء كود جديد ويتأكد هل موجود في قاعدة سابقا ام لا
-   - المتغير `$size`: حجم توكن ممكن  8 او 16 او اكثر حسب صعوبة كلما كان حجم اكثر راح يكون طويل
-   - المتغير `$table`: الجدول الذي تحقق منه
-   -المتغير `$col`: العمود الذي يتحقق منه
-   -المتغير `$type`: يقبل نوعين token,id
+<div dir="rtl">
+  
+ - انشاء كود توكن لعملية ما مثلا تحقق بريد او تحقق كلمة سر
+ - يقوم الكود انشاء كود جديد ويتأكد هل موجود في قاعدة سابقا ام لا
+ - المتغير `$size`: حجم توكن ممكن  8 او 16 او اكثر حسب صعوبة كلما كان حجم اكثر راح يكون طويل
+ - المتغير `$table`: الجدول الذي تحقق منه
+ - المتغير `$col`: العمود الذي يتحقق منه
+ - المتغير `$type`: يقبل نوعين token,id
 يمكنك استخدام مولد الكود العشوائي مع وظيفة رفع الملفات
 
   ## حماية المدخلات (النصوص والأرقام)
   يوجد وظيفتين لحماية المدخلات في مكتبة قمح وهي `safer` وهي تستخدم للنصوص بشكل عام، و `numer` وهي تستخدم للأرقام حصرًا
   مثال عليها
+</div>
+  
   ```php
   $name = safer($_POST['name']); // لحماية النصوص
   $number = numer($_POST['your_age']); // لحماية الأرقام
   ```
+<div dir="rtl">
 
   ## التحققات
   يمكنك التحقق من المدخلات في مكتبة قمح بواسطة الوظيفة `check`
   مثال عليها:
+</div>
+
   ```php
   check($var, $type);
   ```
+<div dir="rtl">
+
   تقوم هذه الوظيفة بالتحقق من نوع المدخلات وتعود بالناتج false في حال كان خطأ
   - المتغير `$var`: وهو مخصص لاستقبال القيم
   - المتغير `$type`: وهو لتحديد نوع القيم، وأنواع التحققات في مكتبة قمح هي:
-    1. الأرقام ويرمز لها بـ num
-    2. البريد الالكتروني، ويرمز له بـ email
-    3. النصوص ويرمز لها بـ txt
-    4. الحروف العربية ويرمز لها بـ ar
-    5. الحروف اللاتينية ويرمز لها بـ en
-    6. الروابط ويرمز لها بـ url
+   1. الأرقام ويرمز لها بـ num
+   2. البريد الالكتروني، ويرمز له بـ email
+   3. النصوص ويرمز لها بـ txt
+   4. الحروف العربية ويرمز لها بـ ar
+   5. الحروف اللاتينية ويرمز لها بـ en
+   6. الروابط ويرمز لها بـ url
 
 ## التعامل مع إعدادات الموقع
 
   - للتعامل مع اعدادات المواقع بواسطة مكتبة قمح، نحن نفترض ان لديك جدول في قاعدة البيانات اسمه `settings` ويحتوي على 3 خلايا وهي `id` و `name` و `value` حيث ان الخلية `name` تحتوي على الاسم الذي سيتم التعامل معه بواسطة مكتبة قمح وهي بمثابة key value to array و `value` هي قيمة هذه المصفوفة
   - للتعامل معها يمكننا استخدام الأمر التالي:
+</div>
+
   ```php
   gsite();
   ```
+<div dir="rtl">
+
  حيث انه سيقوم بجلب البيانات من قاعدة البيانات
   - ومثال واقعي على أمر انشاء جدول `settings` في قاعدة البيانات:
+</div>
+
   ```sql
   CREATE TABLE settings (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -136,12 +193,18 @@ up($name, $input, $dir, $max_size);
   value TEXT NOT NULL
   );
   ```
+<div dir="rtl">
+
 ## التنبيهات
   تستخدم مكتبة قمح تنبيهات [Sweet](https://github.com/sweetalert2/sweetalert2) في عمليات الاستعلامات
   مثال عليها:
+</div>
+
   ```php
   sweet($type, $title, $text, $link = null);
   ```
+<div dir="rtl">
+
   حيث انها تستقبل منك 3 متغيرات اجبارية وواحد اختياري
   - المتغير `$type` وهو مخصص لتحديد نوع الاشعار، وهو يستقبل error و success و warning و info و question وهي المستخدمة بشكل افتراضي بواسطة مكتبة SweetAlerts
   - المتغير `$title` وهو مخصص لتحديد عنوان رئيسي للرسالة
@@ -149,12 +212,15 @@ up($name, $input, $dir, $max_size);
   - المتغير `$link` وهو اختياري وليس اجباري، وهو لاعادة توجيه المستخدم الى مسار معين بعد عرض الاشعار، يمكنك كتابة كلمة `here` ليعيد توجيهه الى نفس الصفحة الحالية
 
     مثال واقعي:
-    ```php
-    $type = "error";
-    $title = "خطأ";
-    $text = "جميع الحقول مطلوبة !";
-    sweet($type, $title, $text);
-    ```
+</div>
+
+ ```php
+ $type = "error";
+ $title = "خطأ";
+ $text = "جميع الحقول مطلوبة !";
+ sweet($type, $title, $text);
+ ```
+<div dir="rtl">
 
 ## النهاية
   - هذا الشرح مختصر بشكل كامل وذلك لأجل توضيح الامور الأساسية في هذه المكتبة، لتتعرف على امور أكثر حول هذه المكتبة توجه الى المسار `includes/functions.php` وستجد عند كل وظيفة شرح عام عنها.
@@ -171,3 +237,5 @@ up($name, $input, $dir, $max_size);
 ## ترخيص
 
 [GPL]
+
+</div>
