@@ -3,6 +3,7 @@
 Wheat is a PHP library that greatly simplifies code writing for developers. It is characterized by many concise and secure functions.
 
 ## Key Functions
+
 Example: Retrieving data from the database:
 
 ### `dbSelect($table, $selects, $where = null, $vars = null)`
@@ -81,6 +82,7 @@ dbDelete("users", $where, $values);
 ```
 
 ## File Uploads
+
 In the Wheat library, a custom system has been developed to handle file uploads on the server.
 
 ```php
@@ -93,6 +95,7 @@ up($name, $input, $dir, $max_size);
 - `$dir`: Upload path (location to save the file on the server).
 
 ### Generating Unique Random Numbers in the Database
+
 ```php
 genCode($table, $column, $type, $size);
 ```
@@ -107,6 +110,7 @@ genCode($table, $column, $type, $size);
 You can use the random code generator with the file upload function.
 
 ## Input Protection (Texts and Numbers)
+
 Wheat library provides two functions for input protection: `safer` for texts and `numer` for numbers.
 
 Example:
@@ -117,6 +121,7 @@ $number = numer($_POST['your_age']); // For number protection
 ```
 
 ## Validations
+
 You can validate inputs using the `check` function in the Wheat library.
 
 ```php
@@ -127,14 +132,16 @@ This function checks the type of inputs and returns false if there is an error.
 
 - `$var`: Variable to receive the values.
 - `$type`: Specifies the type of values. Validation types in the Wheat library are:
- 1. Numbers (num)
- 2. Email (email)
- 3. Texts (txt)
- 4. Arabic characters (ar)
- 5. Latin characters (en)
- 6. URLs (url)
+
+1.  Numbers (num)
+2.  Email (email)
+3.  Texts (txt)
+4.  Arabic characters (ar)
+5.  Latin characters (en)
+6.  URLs (url)
 
 ## Site Settings
+
 To handle site settings using the Wheat library, assume you have a database table named `settings` with three columns: `id`, `name`, and `value`. The `name` column contains the key for Wheat library, and the `value` column contains the value for that key.
 
 To interact with site settings, use the following command:
@@ -156,6 +163,7 @@ CREATE TABLE settings (
 ```
 
 ## Alerts
+
 Wheat library uses [SweetAlerts](https://github.com/sweetalert2/sweetalert2) for notifications during operations.
 
 ```php
@@ -179,17 +187,27 @@ sweet($type, $title, $text);
 ```
 
 ## Conclusion
+
 This is a concise overview to highlight the basic aspects of this library. For more details, refer to the `includes/functions.php` file, where each function has a general explanation.
 
 You can also watch tutorials on YouTube for further understanding.
 
 ## Requirements
+
 - Requires PHP 7.3 or later.
 
 ## Developers
+
 This library was developed by:
+
 - [Mohammad Akour](https://github.com/akourpro)
 - [Boudjelida Abdelhak](https://github.com/abdelhakpro)
 
 ## License
+
 [GPL]
+
+## Contribution
+
+The door is open to all developers to contribute to the development of the library
+Plant a spike to wheat library
