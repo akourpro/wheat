@@ -7,7 +7,7 @@
 مثال: جلب البيانات من قاعدة البيانات:
 </div>
 
-### `dbSelect($table, $selects, $where = null, $vars = null)`
+### ```dbSelect($table, $selects, $where = null, $vars = null)```
 
 <div dir="rtl">
 
@@ -53,9 +53,9 @@
 3. **إدراج بيانات جديدة:**
 </div>
 
-    ```php
-    dbInsert($table, $columns, $vars);
-    ```
+ ```php
+ dbInsert($table, $columns, $vars);
+ ```
 <div dir="rtl"> 
 
  مثال واقعي:
@@ -72,9 +72,9 @@
 4. **تحديث البيانات:**
 </div>
 
-    ```php
-    dbUpdate($table, $columns, $vars, $where = null);
-    ```
+ ```php
+ dbUpdate($table, $columns, $vars, $where = null);
+ ```
     
 <div dir="rtl"> 
 
@@ -94,9 +94,9 @@
 5.  **حذف بيانات:**
 </div>
 
-    ```php
-    dbDelete($table, $where = null, $vars = null);
-    ```
+ ```php
+ dbDelete($table, $where = null, $vars = null);
+ ```
 <div dir="rtl">
 
 مثال واقعي:
