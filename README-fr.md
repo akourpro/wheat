@@ -127,12 +127,12 @@ Cette fonction vérifie le type des entrées et renvoie false s'il y a une erreu
 
 - `$var` : Variable pour recevoir les valeurs.
 - `$type` : Spécifie le type de valeurs. Les types de validation dans la bibliothèque Wheat sont :
-  1. Chiffres (num)
-  2. E-mail (email)
-  3. Textes (txt)
-  4. Caractères arabes (ar)
-  5. Caractères latins (en)
-  6. URLs (url)
+ 1. Chiffres (num)
+ 2. E-mail (email)
+ 3. Textes (txt)
+ 4. Caractères arabes (ar)
+ 5. Caractères latins (en)
+ 6. URLs (url)
 
 ## Paramètres du site
 Pour gérer les paramètres du site avec la bibliothèque Wheat, supposez que vous ayez une table de base de données nommée `settings` avec trois colonnes : `id`, `name`, et `value`. La colonne `name` contient la clé pour la bibliothèque Wheat, et la colonne `value` contient la valeur pour cette clé.
