@@ -10,6 +10,6 @@
         }
     ],
     "require": {
-		"akourpro/wheat": "v1.0.0"
+		"akourpro/wheat": "dev-master"
 	}
 }
