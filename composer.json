@@ -9,5 +9,7 @@
             "email": "hi@akour.me"
         }
     ],
-    "require": {}
+    "require": {
+		"akourpro/wheat": "v1.0.0"
+	}
 }
