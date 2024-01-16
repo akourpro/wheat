@@ -9,6 +9,12 @@
             "email": "hi@akour.me"
         }
     ],
+	"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/akourpro/wheat"
+        }
+    ],
     "require": {
          "php": ">=7.3.0"
     }
