@@ -2,7 +2,7 @@
     "name": "akourpro/wheat",
     "description": "Wheat is a PHP library that greatly simplifies code writing for developers. It is characterized by many concise and secure functions.",
     "type": "library",
-    "license": "GPL",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Mohammad Akour",
@@ -10,6 +10,6 @@
         }
     ],
     "require": {
-        "akourpro/wheat": "dev-master"
+         "php": ">=7.3.0"
     }
 }
