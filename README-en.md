@@ -2,6 +2,13 @@
 
 Wheat is a PHP library that greatly simplifies code writing for developers. It is characterized by many concise and secure functions.
 
+## Library Import
+- You can download the library directly from Github.
+- Alternatively, you can download it using the following command:
+```bash
+git clone https://github.com/akourpro/wheat.git
+```
+
 ## Key Functions
 
 Example: Retrieving data from the database:
