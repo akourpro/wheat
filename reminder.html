@@ -36,18 +36,64 @@
       align-items: center;
       justify-content: center;
       padding: clamp(24px, 5vw, 48px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: clamp(220px, 30vw, 360px);
+      height: clamp(220px, 30vw, 360px);
+      background:
+        radial-gradient(circle at center, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0.04) 70%, transparent 100%),
+        conic-gradient(from 45deg, rgba(15, 23, 42, 0.08) 0 25%, transparent 25% 50%, rgba(15, 23, 42, 0.08) 50% 75%, transparent 75% 100%);
+      mask: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px);
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -120px;
+      right: -90px;
+      transform: rotate(18deg);
+    }
+
+    body::after {
+      bottom: -140px;
+      left: -100px;
+      transform: rotate(-12deg);
     }
 
     .page {
       width: min(960px, 100%);
       display: grid;
       gap: 32px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero {
       text-align: center;
       display: grid;
       gap: 12px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+
+    .hero::after {
+      content: "";
+      width: clamp(120px, 20vw, 180px);
+      height: 14px;
+      margin: 12px auto 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.8) 0 35%, transparent 60%),
+        radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.8) 0 35%, transparent 60%),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.55), rgba(37, 99, 235, 0.65));
+      mask: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0 18px, transparent 18px 24px);
+      opacity: 0.9;
     }
 
     .hero .eyebrow {
@@ -62,6 +108,25 @@
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .eyebrow::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background: rgba(37, 99, 235, 0.8);
+      clip-path: polygon(50% 0%, 63% 35%, 98% 35%, 69% 56%, 79% 91%, 50% 72%, 21% 91%, 31% 56%, 2% 35%, 37% 35%);
+      opacity: 0.75;
+    }
+
+    .hero .eyebrow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(59, 130, 246, 0.15));
+      opacity: 0.6;
     }
 
     .hero h1 {
@@ -97,6 +162,40 @@
       padding: clamp(24px, 3vw, 32px);
       box-shadow: var(--shadow-soft);
       backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0 14px, transparent 14px 28px),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      inset-block-start: -24px;
+      inset-inline-end: -10px;
+      background: radial-gradient(circle at center, rgba(59, 130, 246, 0.18) 0 40%, transparent 70%),
+        radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0 20%, transparent 50%);
+      clip-path: polygon(50% 0%, 63% 35%, 100% 35%, 72% 57%, 82% 100%, 50% 78%, 18% 100%, 28% 57%, 0% 35%, 37% 35%);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .card h2 {
@@ -131,10 +230,30 @@
       border: 1px solid rgba(148, 163, 184, 0.45);
       background-color: rgba(255, 255, 255, 0.9);
       transition: border-color var(--transition), box-shadow var(--transition);
+      direction: ltr;
+      letter-spacing: 0.3px;
+    }
+
+    select {
+      font: inherit;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background-color: rgba(255, 255, 255, 0.9);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, rgba(59, 130, 246, 0.7) 50%), linear-gradient(135deg, rgba(59, 130, 246, 0.7) 50%, transparent 50%);
+      background-position: calc(100% - 24px) calc(50% - 3px), calc(100% - 18px) calc(50% - 3px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      text-align: right;
+      direction: rtl;
     }
 
     input[type="text"]:focus,
-    input[type="tel"]:focus {
+    input[type="tel"]:focus,
+    select:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
@@ -153,6 +272,23 @@
     .methods {
       display: grid;
       gap: 10px;
+    }
+
+    .contact-input {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 600px) {
+      .contact-input {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      }
+    }
+
+    .field-hint {
+      margin: 0;
+      font-size: 13px;
+      color: rgba(15, 23, 42, 0.6);
     }
 
     .method-option {
@@ -374,12 +510,18 @@
 
           <div class="field contact-field" data-method="whatsapp">
             <label for="whatsappNumber">رقم واتساب</label>
-            <input id="whatsappNumber" name="whatsappNumber" type="tel" inputmode="tel" placeholder="مثال: 9665XXXXXXX">
+            <div class="contact-input">
+              <select id="countryCode" name="countryCode">
+                <option value="" disabled selected>جاري تحديد الدولة...</option>
+              </select>
+              <input id="whatsappNumber" name="whatsappNumber" type="tel" inputmode="tel" autocomplete="tel" placeholder="مثال: +966 5XXXXXXX">
+            </div>
+            <p class="field-hint">سيتم التعرف على الرمز الدولي تلقائياً، ويمكن تغييره يدوياً عند الحاجة.</p>
           </div>
 
           <div class="field contact-field" data-method="telegram" hidden>
             <label for="telegramUsername">اسم المستخدم في تيليجرام</label>
-            <input id="telegramUsername" name="telegramUsername" type="text" placeholder="مثال: @username">
+            <input id="telegramUsername" name="telegramUsername" type="text" placeholder="مثال: @username" dir="ltr" autocomplete="off">
           </div>
 
           <div class="button-row">
@@ -431,19 +573,168 @@
     const previewMethod = document.querySelector("[data-preview-method]");
     const previewContact = document.querySelector("[data-preview-contact]");
     const successMessage = document.getElementById("successMessage");
+    const whatsappInput = document.getElementById("whatsappNumber");
+    const countrySelect = document.getElementById("countryCode");
+
+    const countries = [
+      { iso2: "SA", name: "المملكة العربية السعودية", dialCode: "+966" },
+      { iso2: "AE", name: "الإمارات العربية المتحدة", dialCode: "+971" },
+      { iso2: "KW", name: "الكويت", dialCode: "+965" },
+      { iso2: "QA", name: "قطر", dialCode: "+974" },
+      { iso2: "BH", name: "البحرين", dialCode: "+973" },
+      { iso2: "OM", name: "عُمان", dialCode: "+968" },
+      { iso2: "JO", name: "الأردن", dialCode: "+962" },
+      { iso2: "PS", name: "فلسطين", dialCode: "+970" },
+      { iso2: "EG", name: "مصر", dialCode: "+20" },
+      { iso2: "IQ", name: "العراق", dialCode: "+964" },
+      { iso2: "SY", name: "سوريا", dialCode: "+963" },
+      { iso2: "LB", name: "لبنان", dialCode: "+961" },
+      { iso2: "YE", name: "اليمن", dialCode: "+967" },
+      { iso2: "SD", name: "السودان", dialCode: "+249" },
+      { iso2: "LY", name: "ليبيا", dialCode: "+218" },
+      { iso2: "TN", name: "تونس", dialCode: "+216" },
+      { iso2: "DZ", name: "الجزائر", dialCode: "+213" },
+      { iso2: "MA", name: "المغرب", dialCode: "+212" },
+      { iso2: "TR", name: "تركيا", dialCode: "+90" },
+      { iso2: "PK", name: "باكستان", dialCode: "+92" },
+      { iso2: "IN", name: "الهند", dialCode: "+91" },
+      { iso2: "ID", name: "إندونيسيا", dialCode: "+62" },
+      { iso2: "US", name: "الولايات المتحدة الأمريكية", dialCode: "+1" },
+      { iso2: "GB", name: "المملكة المتحدة", dialCode: "+44" },
+      { iso2: "FR", name: "فرنسا", dialCode: "+33" },
+      { iso2: "DE", name: "ألمانيا", dialCode: "+49" }
+    ];
+
+    let isApplyingDialCode = false;
+
+    function detectCountryByLocale() {
+      const candidates = [
+        ...(navigator.languages || []),
+        navigator.language,
+        Intl.DateTimeFormat().resolvedOptions().locale
+      ].filter(Boolean);
+      const regions = candidates
+        .map((locale) => locale.replace("_", "-"))
+        .map((locale) => locale.split("-").pop())
+        .filter(Boolean)
+        .map((code) => code.toUpperCase());
+      return countries.find((country) => regions.includes(country.iso2));
+    }
+
+    function populateCountryOptions() {
+      if (!countrySelect) return;
+      countrySelect.innerHTML =
+        '<option value="" disabled>اختر الدولة</option>' +
+        countries
+          .map(
+            (country) =>
+              `<option value="${country.dialCode}" data-iso="${country.iso2}">${country.name} (${country.dialCode})</option>`
+          )
+          .join("");
+      const detected = detectCountryByLocale();
+      if (detected) {
+        countrySelect.value = detected.dialCode;
+      }
+      if (!countrySelect.value && countries.length) {
+        countrySelect.value = countries[0].dialCode;
+      }
+      updateDialCodePlaceholder();
+    }
+
+    function extractLocalNumber(rawValue, dialCode) {
+      if (!rawValue) return "";
+      let cleaned = rawValue.replace(/\s+/g, " ").trim();
+      if (!dialCode) return cleaned;
+
+      const plainDial = dialCode.replace("+", "");
+      const zeroDial = `00${plainDial}`;
+
+      if (cleaned.startsWith(dialCode)) {
+        cleaned = cleaned.slice(dialCode.length).trimStart();
+      } else if (cleaned.startsWith(zeroDial)) {
+        cleaned = cleaned.slice(zeroDial.length).trimStart();
+      } else if (cleaned.startsWith(plainDial)) {
+        cleaned = cleaned.slice(plainDial.length).trimStart();
+      }
+      return cleaned;
+    }
+
+    function syncLocalNumberFromInput(dialOverride) {
+      if (!whatsappInput) return "";
+      const dialCode = dialOverride || whatsappInput.dataset.lastDialCode || countrySelect?.value || "";
+      const localNumber = extractLocalNumber(whatsappInput.value, dialCode);
+      whatsappInput.dataset.localNumber = localNumber;
+      return localNumber;
+    }
+
+    function updateDialCodePlaceholder() {
+      if (!whatsappInput) return;
+      const dialCode = countrySelect?.value || "+966";
+      whatsappInput.placeholder = `${dialCode} 5XXXXXXX`;
+    }
+
+    function applyDialCode(force = false) {
+      if (!whatsappInput || !countrySelect) return;
+      if ((form.elements.reminderMethod?.value || "whatsapp") !== "whatsapp") return;
+
+      const dialCode = countrySelect.value;
+      if (!dialCode) return;
+
+      if (force || typeof whatsappInput.dataset.localNumber === "undefined") {
+        syncLocalNumberFromInput();
+      }
+
+      let localNumber = (whatsappInput.dataset.localNumber || "").replace(/\s+/g, " ").trim();
+      localNumber = localNumber.replace(/^\+/, "");
+      if (localNumber.startsWith("0")) {
+        localNumber = localNumber.replace(/^0+/, "");
+      }
+
+      isApplyingDialCode = true;
+      const needsSpace = document.activeElement === whatsappInput || Boolean(localNumber);
+      const formatted = needsSpace
+        ? `${dialCode}${localNumber ? " " + localNumber : " "}`
+        : dialCode;
+      whatsappInput.value = formatted;
+      whatsappInput.dataset.lastDialCode = dialCode;
+      isApplyingDialCode = false;
+      updatePreview();
+    }
+
+    function moveCaretToEnd(input) {
+      if (!input || typeof input.setSelectionRange !== "function") return;
+      requestAnimationFrame(() => {
+        const length = input.value.length;
+        input.setSelectionRange(length, length);
+      });
+    }
 
     function toggleContactField(selectedMethod) {
       contactFields.forEach((field) => {
         const isMatch = field.dataset.method === selectedMethod;
         field.hidden = !isMatch;
-        const input = field.querySelector("input");
-        if (input) {
+        const inputs = field.querySelectorAll("input");
+        inputs.forEach((input) => {
           input.required = isMatch;
           if (!isMatch) {
             input.value = "";
+            if (input === whatsappInput) {
+              whatsappInput.dataset.localNumber = "";
+              whatsappInput.dataset.lastDialCode = countrySelect?.value || "";
+            }
           }
-        }
+        });
       });
+
+      if (selectedMethod === "whatsapp") {
+        countrySelect?.removeAttribute("disabled");
+        updateDialCodePlaceholder();
+        if (whatsappInput && whatsappInput.value.trim()) {
+          applyDialCode();
+        }
+      } else {
+        countrySelect?.setAttribute("disabled", "disabled");
+      }
     }
 
     function updatePreview() {
@@ -453,7 +744,8 @@
 
       previewName.textContent = nameInput.value.trim() || "اسم الميت";
       previewMethod.textContent = activeMethod === "whatsapp" ? "واتساب" : "تيليجرام";
-      previewContact.textContent = (contactInput?.value.trim() || (activeMethod === "whatsapp" ? "رقم المستلم" : "@username"));
+      previewContact.textContent =
+        contactInput?.value.trim() || (activeMethod === "whatsapp" ? "رقم المستلم" : "@username");
     }
 
     methodRadios.forEach((radio) => {
@@ -463,7 +755,44 @@
       });
     });
 
-    form.addEventListener("input", updatePreview);
+    form.addEventListener("input", (event) => {
+      if (event.target !== whatsappInput) {
+        updatePreview();
+      }
+    });
+
+    countrySelect?.addEventListener("change", () => {
+      const previousDial = whatsappInput?.dataset.lastDialCode || "";
+      if (whatsappInput) {
+        whatsappInput.dataset.localNumber = extractLocalNumber(whatsappInput.value, previousDial);
+      }
+      updateDialCodePlaceholder();
+      applyDialCode(true);
+      if (document.activeElement === whatsappInput) {
+        moveCaretToEnd(whatsappInput);
+      }
+    });
+
+    whatsappInput?.addEventListener("focus", () => {
+      updateDialCodePlaceholder();
+      const currentDial = countrySelect?.value || "";
+      const trimmedValue = whatsappInput.value.trim();
+      if (!trimmedValue || trimmedValue === currentDial) {
+        applyDialCode(true);
+      }
+      moveCaretToEnd(whatsappInput);
+    });
+
+    whatsappInput?.addEventListener("input", () => {
+      if (isApplyingDialCode) return;
+      syncLocalNumberFromInput();
+      whatsappInput.dataset.userEdited = "true";
+      updatePreview();
+    });
+
+    whatsappInput?.addEventListener("blur", () => {
+      applyDialCode();
+    });
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -472,8 +801,8 @@
       previewCard.classList.add("visible");
     });
 
-    // Initialize on load
-    toggleContactField("whatsapp");
+    populateCountryOptions();
+    toggleContactField(form.elements.reminderMethod.value || "whatsapp");
     updatePreview();
   </script>
 </body>
